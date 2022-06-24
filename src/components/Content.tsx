@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { MovieCard } from "./MovieCard";
 
 interface ContentProps {
@@ -20,10 +21,12 @@ interface ContentProps {
 }
 
 export function Content({ selectedGenre, movies }: ContentProps) {
+  const title = useMemo(() => selectedGenre.title, [selectedGenre.title]);
+  
   return (
     <div className="container">
       <header>
-        <span className="category">Categoria:<span> {selectedGenre.title}</span></span>
+        <span className="category">Categoria:<span> {title}</span></span>
       </header>
 
       <main>
